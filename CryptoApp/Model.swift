@@ -11,6 +11,7 @@ final class Coin {
     var current_price: Double
     var market_cap: Double
     var chartData: [CoinChart]
+    var expire: Date
     
     init(id: String, symbol: String, name: String, image: String, market_cap_rank: Int, current_price: Double, market_cap: Double, chartData: [CoinChart]) {
         self.id = id
@@ -21,6 +22,7 @@ final class Coin {
         self.current_price = current_price
         self.market_cap = market_cap
         self.chartData = chartData
+        self.expire = Date.now + 15 * 60
     }
 }
 

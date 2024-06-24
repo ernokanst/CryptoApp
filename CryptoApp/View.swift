@@ -4,6 +4,7 @@ import Charts
 
 struct ContentView: View {
     @State private var viewModel: ViewModel
+    @State private var isPerformingTask = false
 
     var body: some View {
         NavigationView {
@@ -38,7 +39,13 @@ struct ContentView: View {
                 }
                 .toolbar {
                     ToolbarItem {
-                        Button(action: viewModel.fetchFromAPI) {
+                        Button(action: {
+                            isPerformingTask = true
+                            Task {
+                                await viewModel.fetchFromAPI()
+                                isPerformingTask = false
+                            }
+                        }) {
                             Label("Обновить", systemImage: "arrow.clockwise")
                         }
                     }
@@ -55,7 +62,6 @@ struct ContentView: View {
     init(modelContext: ModelContext) {
         let viewModel = ViewModel(modelContext: modelContext)
         _viewModel = State(initialValue: viewModel)
-        viewModel.fetchFromAPI()
     }
 }
 

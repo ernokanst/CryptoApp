@@ -12,7 +12,7 @@ extension ContentView {
             fetchData()
         }
         
-        func fetchFromAPI() {
+        func fetchFromAPI() async {
             let header = [
                 "Content-Type": "application/json",
                 "x-cg-demo-api-key": "CG-z4cf5L9ZFUUMj7HDPoG5DNG6"
@@ -21,24 +21,23 @@ extension ContentView {
             request.allHTTPHeaderFields = header
             request.httpMethod = "GET"
             let session = URLSession.shared
-            let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!) as? [[String: Any]]
-                    for c in json! {
-                        self.modelContext.insert(Coin(id: c["id"] as! String, symbol: c["symbol"] as! String, name: c["name"] as! String, image: c["image"] as! String, market_cap_rank: c["market_cap_rank"] as! Int, current_price: c["current_price"] as! Double, market_cap: c["market_cap"] as! Double, chartData: []))
-                    }
-                } catch {
-                    print("error")
+            do {
+                let (data, _) = try await session.data(for: request)
+                let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
+                for c in json! {
+                    self.modelContext.insert(Coin(id: c["id"] as! String, symbol: c["symbol"] as! String, name: c["name"] as! String, image: c["image"] as! String, market_cap_rank: c["market_cap_rank"] as! Int, current_price: c["current_price"] as! Double, market_cap: c["market_cap"] as! Double, chartData: []))
                 }
-            })
+            } catch {
+                print("error")
+            }
             fetchData()
-            task.resume()
         }
 
         func fetchData() {
             do {
                 let descriptor = FetchDescriptor<Coin>(sortBy: [SortDescriptor(\.market_cap_rank)])
-                coins = try modelContext.fetch(descriptor)
+                coins = try modelContext.fetch(descriptor).filter { $0.expire > Date.now }
+                print(coins.count)
             } catch {
                 print("Fetch failed")
             }
@@ -54,7 +53,6 @@ extension ContentView {
             request.allHTTPHeaderFields = header
             request.httpMethod = "GET"
             let session = URLSession.shared
-            
             let (data, _) = try await session.data(for: request)
             let json = try JSONSerialization.jsonObject(with: data) as? Dictionary<String, [[Double]]>
             for c in json!["prices"]! {
