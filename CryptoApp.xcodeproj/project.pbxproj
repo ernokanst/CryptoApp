@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		75876D572C289E1F00107B3A /* CryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D562C289E1F00107B3A /* CryptoAppApp.swift */; };
-		75876D592C289E1F00107B3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D582C289E1F00107B3A /* ContentView.swift */; };
-		75876D5B2C289E1F00107B3A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D5A2C289E1F00107B3A /* Item.swift */; };
+		75876D572C289E1F00107B3A /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D562C289E1F00107B3A /* CryptoApp.swift */; };
+		75876D592C289E1F00107B3A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D582C289E1F00107B3A /* View.swift */; };
+		75876D5B2C289E1F00107B3A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D5A2C289E1F00107B3A /* Model.swift */; };
 		75876D5D2C289E2000107B3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75876D5C2C289E2000107B3A /* Assets.xcassets */; };
 		75876D602C289E2000107B3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75876D5F2C289E2000107B3A /* Preview Assets.xcassets */; };
 		75876D6A2C289E2000107B3A /* CryptoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D692C289E2000107B3A /* CryptoAppTests.swift */; };
 		75876D742C289E2000107B3A /* CryptoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D732C289E2000107B3A /* CryptoAppUITests.swift */; };
 		75876D762C289E2000107B3A /* CryptoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D752C289E2000107B3A /* CryptoAppUITestsLaunchTests.swift */; };
+		75876D832C28A28A00107B3A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75876D822C28A28A00107B3A /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +37,9 @@
 
 /* Begin PBXFileReference section */
 		75876D532C289E1F00107B3A /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		75876D562C289E1F00107B3A /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
-		75876D582C289E1F00107B3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		75876D5A2C289E1F00107B3A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		75876D562C289E1F00107B3A /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
+		75876D582C289E1F00107B3A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		75876D5A2C289E1F00107B3A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		75876D5C2C289E2000107B3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75876D5F2C289E2000107B3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75876D652C289E2000107B3A /* CryptoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +47,7 @@
 		75876D6F2C289E2000107B3A /* CryptoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75876D732C289E2000107B3A /* CryptoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppUITests.swift; sourceTree = "<group>"; };
 		75876D752C289E2000107B3A /* CryptoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		75876D822C28A28A00107B3A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +98,10 @@
 		75876D552C289E1F00107B3A /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
-				75876D562C289E1F00107B3A /* CryptoAppApp.swift */,
-				75876D582C289E1F00107B3A /* ContentView.swift */,
-				75876D5A2C289E1F00107B3A /* Item.swift */,
+				75876D562C289E1F00107B3A /* CryptoApp.swift */,
+				75876D5A2C289E1F00107B3A /* Model.swift */,
+				75876D582C289E1F00107B3A /* View.swift */,
+				75876D822C28A28A00107B3A /* ViewModel.swift */,
 				75876D5C2C289E2000107B3A /* Assets.xcassets */,
 				75876D5E2C289E2000107B3A /* Preview Content */,
 			);
@@ -260,9 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75876D592C289E1F00107B3A /* ContentView.swift in Sources */,
-				75876D5B2C289E1F00107B3A /* Item.swift in Sources */,
-				75876D572C289E1F00107B3A /* CryptoAppApp.swift in Sources */,
+				75876D592C289E1F00107B3A /* View.swift in Sources */,
+				75876D5B2C289E1F00107B3A /* Model.swift in Sources */,
+				75876D832C28A28A00107B3A /* ViewModel.swift in Sources */,
+				75876D572C289E1F00107B3A /* CryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,11 +433,14 @@
 				DEVELOPMENT_TEAM = PL93HUUR5R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,11 +465,14 @@
 				DEVELOPMENT_TEAM = PL93HUUR5R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

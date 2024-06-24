@@ -1,10 +1,3 @@
-//
-//  CryptoAppTests.swift
-//  CryptoAppTests
-//
-//  Created by Дмитрий Канский on 23.06.2024.
-//
-
 import XCTest
 @testable import CryptoApp
 
