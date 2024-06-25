@@ -17,7 +17,7 @@ extension ContentView {
                 if searchText.isEmpty {
                     return coins
                 } else {
-                    return coins.filter { $0.name.contains(searchText) }
+                    return coins.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
                 }
             }
         

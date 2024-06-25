@@ -41,6 +41,17 @@ final class CryptoAppTests: XCTestCase {
             XCTAssertGreaterThanOrEqual(d.price, 0)
         }
     }
+    
+    func testSearch() async throws {
+        await viewModel.fetchFromAPI()
+        XCTAssertFalse(viewModel.coins.isEmpty)
+        viewModel.searchText = ""
+        XCTAssertEqual(viewModel.coins, viewModel.searchResults)
+        viewModel.searchText = "doge"
+        XCTAssertFalse(viewModel.searchResults.isEmpty)
+        XCTAssertEqual(viewModel.searchResults.count, 1)
+        XCTAssertEqual(viewModel.searchResults[0].name, "Dogecoin")
+    }
 
     func testAPIPerformance() async throws {
         self.measure {
