@@ -24,13 +24,6 @@
 			remoteGlobalIDString = 75876D522C289E1F00107B3A;
 			remoteInfo = CryptoApp;
 		};
-		75876D702C289E2000107B3A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75876D4B2C289E1F00107B3A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75876D522C289E1F00107B3A;
-			remoteInfo = CryptoApp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +36,6 @@
 		75876D5C2C289E2000107B3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75876D5F2C289E2000107B3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75876D652C289E2000107B3A /* CryptoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75876D6F2C289E2000107B3A /* CryptoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75876D822C28A28A00107B3A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,13 +48,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		75876D622C289E2000107B3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75876D6C2C289E2000107B3A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -87,7 +72,6 @@
 			children = (
 				75876D532C289E1F00107B3A /* CryptoApp.app */,
 				75876D652C289E2000107B3A /* CryptoAppTests.xctest */,
-				75876D6F2C289E2000107B3A /* CryptoAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,24 +143,6 @@
 			productReference = 75876D652C289E2000107B3A /* CryptoAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75876D6E2C289E2000107B3A /* CryptoAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75876D7F2C289E2000107B3A /* Build configuration list for PBXNativeTarget "CryptoAppUITests" */;
-			buildPhases = (
-				75876D6B2C289E2000107B3A /* Sources */,
-				75876D6C2C289E2000107B3A /* Frameworks */,
-				75876D6D2C289E2000107B3A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75876D712C289E2000107B3A /* PBXTargetDependency */,
-			);
-			name = CryptoAppUITests;
-			productName = CryptoAppUITests;
-			productReference = 75876D6F2C289E2000107B3A /* CryptoAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,10 +157,6 @@
 						CreatedOnToolsVersion = 15.4;
 					};
 					75876D642C289E2000107B3A = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 75876D522C289E1F00107B3A;
-					};
-					75876D6E2C289E2000107B3A = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 75876D522C289E1F00107B3A;
 					};
@@ -215,7 +177,6 @@
 			targets = (
 				75876D522C289E1F00107B3A /* CryptoApp */,
 				75876D642C289E2000107B3A /* CryptoAppTests */,
-				75876D6E2C289E2000107B3A /* CryptoAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -231,13 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		75876D632C289E2000107B3A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75876D6D2C289E2000107B3A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,13 +220,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75876D6B2C289E2000107B3A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -280,11 +227,6 @@
 			isa = PBXTargetDependency;
 			target = 75876D522C289E1F00107B3A /* CryptoApp */;
 			targetProxy = 75876D662C289E2000107B3A /* PBXContainerItemProxy */;
-		};
-		75876D712C289E2000107B3A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75876D522C289E1F00107B3A /* CryptoApp */;
-			targetProxy = 75876D702C289E2000107B3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,42 +454,6 @@
 			};
 			name = Release;
 		};
-		75876D802C289E2000107B3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PL93HUUR5R;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ernokanst.CryptoAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CryptoApp;
-			};
-			name = Debug;
-		};
-		75876D812C289E2000107B3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PL93HUUR5R;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ernokanst.CryptoAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CryptoApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -574,15 +480,6 @@
 			buildConfigurations = (
 				75876D7D2C289E2000107B3A /* Debug */,
 				75876D7E2C289E2000107B3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75876D7F2C289E2000107B3A /* Build configuration list for PBXNativeTarget "CryptoAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75876D802C289E2000107B3A /* Debug */,
-				75876D812C289E2000107B3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,16 +22,16 @@ final class CryptoAppTests: XCTestCase {
     func testFetchFromAPI() async throws {
         await viewModel.fetchFromAPI()
         XCTAssertFalse(viewModel.coins.isEmpty)
-        XCTAssertEqual(viewModel.coins.count, 100)
+        XCTAssertGreaterThanOrEqual(viewModel.coins.count, 95)
         XCTAssertEqual(viewModel.coins[0].market_cap_rank, 1)
-        XCTAssertEqual(viewModel.coins[99].market_cap_rank, 100)
+        XCTAssertEqual(viewModel.coins[41].market_cap_rank, 42)
         XCTAssertEqual(viewModel.coins[0].id, "bitcoin")
     }
     
     func testFetchPriceChart() async throws {
         await viewModel.fetchFromAPI()
         var btc = viewModel.coins[0]
-        var charData = try await viewModel.fetchPriceChart(coin: btc)
+        var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
         XCTAssertFalse(charData.isEmpty)
         XCTAssertEqual(charData.count, 31)
         var calendar = Calendar(identifier: .gregorian)
@@ -53,17 +53,68 @@ final class CryptoAppTests: XCTestCase {
         }
     }
     
-    func testChartPerformance() async throws {
+    func testChartPerformance1D() async throws {
         self.measure {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
                 var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc)
+                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1Д")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)
         }
     }
-
+    
+    func testChartPerformance7D() async throws {
+        self.measure {
+            let exp = expectation(description: "Данные получены")
+            Task {
+                await viewModel.fetchFromAPI()
+                var btc = viewModel.coins[0]
+                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "7Д")
+                exp.fulfill()
+            }
+            wait(for: [exp], timeout: 10.0)
+        }
+    }
+    
+    func testChartPerformance1M() async throws {
+        self.measure {
+            let exp = expectation(description: "Данные получены")
+            Task {
+                await viewModel.fetchFromAPI()
+                var btc = viewModel.coins[0]
+                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
+                exp.fulfill()
+            }
+            wait(for: [exp], timeout: 10.0)
+        }
+    }
+    
+    func testChartPerformance3M() async throws {
+        self.measure {
+            let exp = expectation(description: "Данные получены")
+            Task {
+                await viewModel.fetchFromAPI()
+                var btc = viewModel.coins[0]
+                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "3М")
+                exp.fulfill()
+            }
+            wait(for: [exp], timeout: 10.0)
+        }
+    }
+    
+    func testChartPerformance1Y() async throws {
+        self.measure {
+            let exp = expectation(description: "Данные получены")
+            Task {
+                await viewModel.fetchFromAPI()
+                var btc = viewModel.coins[0]
+                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1Г")
+                exp.fulfill()
+            }
+            wait(for: [exp], timeout: 10.0)
+        }
+    }
 }

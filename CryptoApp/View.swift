@@ -25,10 +25,46 @@ struct ContentView: View {
                                 Text("$" + coin.current_price.clean).font(.title)
                             }
                         }.onAppear() {
-                            if coin.chartData.isEmpty {
+                            if coin.chartData1D.isEmpty {
                                 Task {
                                     do {
-                                        coin.chartData = try await viewModel.fetchPriceChart(coin: coin)
+                                        coin.chartData1D = try await viewModel.fetchPriceChart(coin: coin, scale: "1Д")
+                                    } catch {
+                                        print("error")
+                                    }
+                                }
+                            }
+                            if coin.chartData7D.isEmpty {
+                                Task {
+                                    do {
+                                        coin.chartData7D = try await viewModel.fetchPriceChart(coin: coin, scale: "7Д")
+                                    } catch {
+                                        print("error")
+                                    }
+                                }
+                            }
+                            if coin.chartData1M.isEmpty {
+                                Task {
+                                    do {
+                                        coin.chartData1M = try await viewModel.fetchPriceChart(coin: coin, scale: "1М")
+                                    } catch {
+                                        print("error")
+                                    }
+                                }
+                            }
+                            if coin.chartData3M.isEmpty {
+                                Task {
+                                    do {
+                                        coin.chartData3M = try await viewModel.fetchPriceChart(coin: coin, scale: "3М")
+                                    } catch {
+                                        print("error")
+                                    }
+                                }
+                            }
+                            if coin.chartData1Y.isEmpty {
+                                Task {
+                                    do {
+                                        coin.chartData1Y = try await viewModel.fetchPriceChart(coin: coin, scale: "1Г")
                                     } catch {
                                         print("error")
                                     }
@@ -66,7 +102,15 @@ struct ContentView: View {
 }
 
 struct CoinDetail: View {
-    var coin: Coin
+    @State var coin: Coin
+    @State private var selectedScale = "1М"
+    @State private var selectedChart: [CoinChart]
+    let chartScales = ["1Д", "7Д", "1М", "3М", "1Г"]
+    
+    init(coin: Coin) {
+        self.coin = coin
+        selectedChart = coin.chartData1M
+    }
 
     var body: some View {
         VStack {
@@ -80,12 +124,34 @@ struct CoinDetail: View {
                 Text(coin.name)
                     .font(.largeTitle)
             }
-            Chart(coin.chartData.sorted(by: { $0.date.compare($1.date) == .orderedAscending }), id: \.date) {
+            Chart(selectedChart.sorted(by: { $0.date.compare($1.date) == .orderedAscending }), id: \.date) {
                     LineMark(
                         x: .value("День", $0.date),
                         y: .value("Цена", $0.price)
                     )
                 }
+            .chartYScale(domain: Int(selectedChart.map({ $0.price }).min() ?? 0 * 0.9)...Int(selectedChart.map({ $0.price }).max() ?? 100000 * 1.1))
+            Picker("Масштаб", selection: $selectedScale) {
+                ForEach(chartScales, id: \.self) {
+                    Text($0)
+                }
+            }.pickerStyle(.segmented).padding(/*@START_MENU_TOKEN@*/.all, 8.0/*@END_MENU_TOKEN@*/)
+            .onChange(of: selectedScale) {
+                switch selectedScale {
+                case "1Д":
+                    selectedChart = coin.chartData1D
+                case "7Д":
+                    selectedChart = coin.chartData7D
+                case "1М":
+                    selectedChart = coin.chartData1M
+                case "3М":
+                    selectedChart = coin.chartData3M
+                case "1Г":
+                    selectedChart = coin.chartData1Y
+                default:
+                    selectedChart = coin.chartData1M
+                }
+            }
             List {
                 HStack {
                     Text("Код:")
