@@ -30,7 +30,7 @@ struct ContentView: View {
                                     do {
                                         coin.chartData1D = try await viewModel.fetchPriceChart(coin: coin, scale: "1Д")
                                     } catch {
-                                        print("error")
+                                        print("Закончился лимит запросов API.")
                                     }
                                 }
                             }
@@ -39,7 +39,7 @@ struct ContentView: View {
                                     do {
                                         coin.chartData7D = try await viewModel.fetchPriceChart(coin: coin, scale: "7Д")
                                     } catch {
-                                        print("error")
+                                        print("Закончился лимит запросов API.")
                                     }
                                 }
                             }
@@ -48,7 +48,7 @@ struct ContentView: View {
                                     do {
                                         coin.chartData1M = try await viewModel.fetchPriceChart(coin: coin, scale: "1М")
                                     } catch {
-                                        print("error")
+                                        print("Закончился лимит запросов API.")
                                     }
                                 }
                             }
@@ -57,7 +57,7 @@ struct ContentView: View {
                                     do {
                                         coin.chartData3M = try await viewModel.fetchPriceChart(coin: coin, scale: "3М")
                                     } catch {
-                                        print("error")
+                                        print("Закончился лимит запросов API.")
                                     }
                                 }
                             }
@@ -66,7 +66,7 @@ struct ContentView: View {
                                     do {
                                         coin.chartData1Y = try await viewModel.fetchPriceChart(coin: coin, scale: "1Г")
                                     } catch {
-                                        print("error")
+                                        print("Закончился лимит запросов API.")
                                     }
                                 }
                             }
@@ -185,7 +185,7 @@ extension Double {
     do {
         container = try ModelContainer(for: Coin.self)
     } catch {
-        fatalError("Failed to create ModelContainer for Coin.")
+        fatalError("Не удалось создать контейнер для Coin.")
     }
     return ContentView(modelContext: container.mainContext)
 }

@@ -16,7 +16,7 @@ struct CryptoApp: App {
         do {
             container = try ModelContainer(for: Coin.self)
         } catch {
-            fatalError("Failed to create ModelContainer for Coin.")
+            fatalError("Не удалось создать контейнер для Coin.")
         }
     }
 }

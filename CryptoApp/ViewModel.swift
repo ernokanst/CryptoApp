@@ -37,7 +37,7 @@ extension ContentView {
                     self.modelContext.insert(Coin(id: c["id"] as! String, symbol: c["symbol"] as! String, name: c["name"] as! String, image: c["image"] as! String, market_cap_rank: c["market_cap_rank"] as! Int, current_price: c["current_price"] as! Double, market_cap: c["market_cap"] as! Double))
                 }
             } catch {
-                print("error")
+                print("Не удалось получить данные с сервера.")
             }
             fetchData()
         }
@@ -47,7 +47,7 @@ extension ContentView {
                 let descriptor = FetchDescriptor<Coin>(sortBy: [SortDescriptor(\.market_cap_rank)])
                 coins = try modelContext.fetch(descriptor).filter { $0.expire > Date.now }
             } catch {
-                print("Fetch failed")
+                print("Не удалось загрузить данные из кеша.")
             }
         }
         
