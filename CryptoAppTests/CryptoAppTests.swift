@@ -30,11 +30,11 @@ final class CryptoAppTests: XCTestCase {
     
     func testFetchPriceChart() async throws {
         await viewModel.fetchFromAPI()
-        var btc = viewModel.coins[0]
-        var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
+        let btc = viewModel.coins[0]
+        let charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
         XCTAssertFalse(charData.isEmpty)
         XCTAssertEqual(charData.count, 31)
-        var calendar = Calendar(identifier: .gregorian)
+        let calendar = Calendar(identifier: .gregorian)
         for d in charData {
             XCTAssertGreaterThan(d.date, calendar.date(from: DateComponents(year: 2024, month: 1, day: 1, hour: 0, minute: 0, second: 0))!)
             XCTAssertLessThan(d.date, calendar.date(from: DateComponents(year: 2025, month: 1, day: 1, hour: 0, minute: 0, second: 0))!)
@@ -58,8 +58,8 @@ final class CryptoAppTests: XCTestCase {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
-                var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1Д")
+                let btc = viewModel.coins[0]
+                _ = try await viewModel.fetchPriceChart(coin: btc, scale: "1Д")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)
@@ -71,8 +71,8 @@ final class CryptoAppTests: XCTestCase {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
-                var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "7Д")
+                let btc = viewModel.coins[0]
+                _ = try await viewModel.fetchPriceChart(coin: btc, scale: "7Д")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)
@@ -84,8 +84,8 @@ final class CryptoAppTests: XCTestCase {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
-                var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
+                let btc = viewModel.coins[0]
+                _ = try await viewModel.fetchPriceChart(coin: btc, scale: "1М")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)
@@ -97,8 +97,8 @@ final class CryptoAppTests: XCTestCase {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
-                var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "3М")
+                let btc = viewModel.coins[0]
+                _ = try await viewModel.fetchPriceChart(coin: btc, scale: "3М")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)
@@ -110,8 +110,8 @@ final class CryptoAppTests: XCTestCase {
             let exp = expectation(description: "Данные получены")
             Task {
                 await viewModel.fetchFromAPI()
-                var btc = viewModel.coins[0]
-                var charData = try await viewModel.fetchPriceChart(coin: btc, scale: "1Г")
+                let btc = viewModel.coins[0]
+                _ = try await viewModel.fetchPriceChart(coin: btc, scale: "1Г")
                 exp.fulfill()
             }
             wait(for: [exp], timeout: 10.0)

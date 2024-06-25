@@ -6,11 +6,20 @@ extension ContentView {
     class ViewModel {
         var modelContext: ModelContext
         var coins = [Coin]()
+        var searchText = ""
 
         init(modelContext: ModelContext) {
             self.modelContext = modelContext
             fetchData()
         }
+        
+        var searchResults: [Coin] {
+                if searchText.isEmpty {
+                    return coins
+                } else {
+                    return coins.filter { $0.name.contains(searchText) }
+                }
+            }
         
         func fetchFromAPI() async {
             let header = [

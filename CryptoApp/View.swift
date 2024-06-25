@@ -10,7 +10,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(viewModel.coins) { coin in
+                    ForEach(viewModel.searchResults) { coin in
                         NavigationLink(destination: CoinDetail(coin: coin)) {
                             VStack(alignment: .leading) {
                                 HStack {
@@ -86,6 +86,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .searchable(text: $viewModel.searchText)
                 .navigationTitle("Курсы валют")
                 if viewModel.coins.isEmpty {
                     Text("Добро пожаловать! Нажмите кнопку \(Image(systemName: "arrow.clockwise")).")
