@@ -131,7 +131,7 @@ struct CoinDetail: View {
                         y: .value("Цена", $0.price)
                     )
                 }
-            .chartYScale(domain: Int(selectedChart.map({ $0.price }).min() ?? 0 * 0.9)...Int(selectedChart.map({ $0.price }).max() ?? 100000 * 1.1))
+            .chartYScale(domain: [(selectedChart.map({ $0.price }).min() ?? 0) * 0.9, (selectedChart.map({ $0.price }).max() ?? 10000) * 1.1])
             Picker("Масштаб", selection: $selectedScale) {
                 ForEach(chartScales, id: \.self) {
                     Text($0)
