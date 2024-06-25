@@ -37,7 +37,6 @@ extension ContentView {
             do {
                 let descriptor = FetchDescriptor<Coin>(sortBy: [SortDescriptor(\.market_cap_rank)])
                 coins = try modelContext.fetch(descriptor).filter { $0.expire > Date.now }
-                print(coins.count)
             } catch {
                 print("Fetch failed")
             }

@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "E635CF85-C6C4-4FA6-826B-28EBEADACDE4",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CryptoApp.xcodeproj",
+      "identifier" : "75876D522C289E1F00107B3A",
+      "name" : "CryptoApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CryptoApp.xcodeproj",
+        "identifier" : "75876D642C289E2000107B3A",
+        "name" : "CryptoAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
