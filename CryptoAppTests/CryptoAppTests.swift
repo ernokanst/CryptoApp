@@ -5,12 +5,12 @@ import SwiftData
 final class CryptoAppTests: XCTestCase {
     
     var container: ModelContainer!
-    var viewModel: ContentView.ViewModel!
+    var viewModel: CoinView.ViewModel!
 
     @MainActor override func setUpWithError() throws {
         try super.setUpWithError()
         container = try ModelContainer(for: Coin.self)
-        viewModel = ContentView.ViewModel(modelContext: container.mainContext)
+        viewModel = CoinView.ViewModel(modelContext: container.mainContext)
     }
 
     override func tearDownWithError() throws {

@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import Charts
 
-struct ContentView: View {
+struct CoinView: View {
     @State private var viewModel: ViewModel
     @State private var isPerformingTask = false
 
@@ -187,5 +187,5 @@ extension Double {
     } catch {
         fatalError("Не удалось создать контейнер для Coin.")
     }
-    return ContentView(modelContext: container.mainContext)
+    return CoinView(modelContext: container.mainContext)
 }

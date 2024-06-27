@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
 
-extension ContentView {
+extension CoinView {
     @Observable
     class ViewModel {
         var modelContext: ModelContext
@@ -32,9 +32,10 @@ extension ContentView {
             let session = URLSession.shared
             do {
                 let (data, _) = try await session.data(for: request)
-                let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
-                for c in json! {
-                    self.modelContext.insert(Coin(id: c["id"] as! String, symbol: c["symbol"] as! String, name: c["name"] as! String, image: c["image"] as! String, market_cap_rank: c["market_cap_rank"] as! Int, current_price: c["current_price"] as! Double, market_cap: c["market_cap"] as! Double))
+                if let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    for c in json {
+                        self.modelContext.insert(Coin(id: c["id"] as? String ?? "", symbol: c["symbol"] as? String ?? "", name: c["name"] as? String ?? "", image: c["image"] as? String ?? "", market_cap_rank: c["market_cap_rank"] as? Int ?? 0, current_price: c["current_price"] as? Double ?? 0, market_cap: c["market_cap"] as? Double ?? 0))
+                    }
                 }
             } catch {
                 print("Не удалось получить данные с сервера.")
@@ -77,7 +78,7 @@ extension ContentView {
             let session = URLSession.shared
             let (data, _) = try await session.data(for: request)
             let json = try JSONSerialization.jsonObject(with: data) as? Dictionary<String, [[Double]]>
-            for c in json!["prices"]! {
+            for c in json?["prices"] ?? [] {
                 chartData.append(CoinChart(date: Int(c[0]) / 1000, price: c[1]))
             }
             return chartData

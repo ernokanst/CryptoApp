@@ -7,7 +7,7 @@ struct CryptoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(modelContext: container.mainContext)
+            CoinView(modelContext: container.mainContext)
         }
         .modelContainer(container)
     }
