@@ -33,14 +33,3 @@ final class Coin {
         self.expire = Date.now + 15 * 60
     }
 }
-
-@Model
-class CoinChart {
-    var date: Date
-    var price: Double
-
-    init(date: Int, price: Double) {
-        self.date = Date(timeIntervalSince1970: TimeInterval(date))
-        self.price = price
-    }
-}
